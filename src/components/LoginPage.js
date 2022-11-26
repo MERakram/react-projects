@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import React from "react"
-import Tab from "./displayTab";
 
 const LoginPage = (props) => {
     const [UserList, setUserList] = useState([]);
