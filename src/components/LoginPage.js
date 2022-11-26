@@ -6,24 +6,15 @@ const LoginPage = (props) => {
     const [UserList, setUserList] = useState([]);
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
+
     const onAddUserClick = (username, password) => {
         setUserList(UserList.concat(
             {username, password}
         ));
-        // console.log(UserList)
-    };
-    const onRemoveUserClick = (name) => {
-        const selectedUser=UserList.find(
-            (obj) => obj.username === name
-        );
-        // setUserList(UserList.splice(
-        //     selectedUser, 1
-        // ));
-        console.log(selectedUser)
     };
 
     return (
-        <div className="container">
+        <div className="">
             <div className="Auth-form-container">
                 <form className="Auth-form">
                     <div className="Auth-form-content">
@@ -49,27 +40,26 @@ const LoginPage = (props) => {
                             />
                         </div>
                         <div className="d-grid gap-2 mt-3">
-                            <button onClick={() => onAddUserClick(username, password)} className="btn btn-primary">
+                            <button type="button" onClick={() => onAddUserClick(username, password)}
+                                    className="btn btn-primary">
                                 Submit
                             </button>
                         </div>
-
                     </div>
                 </form>
-
             </div>
-            <div className="justify-content-center">
-                <ul>
-                    {UserList.map((data, key) => (
-                        <li key={key + 1}>
-                            <p>username: {data.username} password: {data.password}</p>
-                            <button onClick={() => onRemoveUserClick(data.username)}>Go to Tab</button>
-                        </li>
+            {UserList.map((user, index) =>
+                <center key={index}>
+                    <h3 key={index + 1}>
+                        user {index + 1} is {user.username} pass: {user.password}
+                    </h3>
 
-                    ))}
-                </ul>
-            </div>
-            <Tab arr={UserList}/>
+                    <button className="btn btn-danger" key={index - 1} onClick={(e) => {
+                        setUserList(UserList.filter((ev) => ev !== user))
+                    }}>delete
+                    </button>
+                </center>
+            )}
         </div>
     )
 }
