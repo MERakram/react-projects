@@ -11,7 +11,8 @@ import Comp from "./components/old_project/LinaList";
 import RandomButton from "./components/old_project/randomNumberButton";
 import MainTaskList from "./components/task1/MainTaskList";
 import MainTaskForm from "./components/task2/MainTaskForm";
-import TaskApp from "./components/task3/TaskApp";
+import TaskApp3 from "./components/task3/TaskApp";
+import TaskApp4 from "./components/task4/TaskApp";
 
 function App() {
     return (
@@ -26,7 +27,8 @@ function App() {
                 <Route path="/linalist" element={<Comp />} />
                 <Route path="/main" element={<MainTaskList />} />
                 <Route path="/main2" element={<MainTaskForm />} />
-                <Route path="/task2" element={<TaskApp />} />
+                <Route path="/task2" element={<TaskApp3 />} />
+                <Route path="/task3" element={<TaskApp4 />} />
             </Routes>
         </BrowserRouter>
     )
